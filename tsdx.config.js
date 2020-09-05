@@ -1,6 +1,8 @@
 module.exports = {
   rollup(config, options) {
-    //console.log(config);
+    if (options.env === 'production') {
+      config.output.file = config.output.file.replace('.production.', '.');
+    }
     return config;
   }
 }
